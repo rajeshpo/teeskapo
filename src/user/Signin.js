@@ -23,7 +23,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const Signin = () => {
   const [values, setValues] = useState({
     email: "",
-    password: "123456",
+    password: "",
     error: "",
     loading: false,
     didRedirect: false
