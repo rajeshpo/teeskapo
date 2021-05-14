@@ -19,6 +19,11 @@ const Cart = () => {
  
  
   useEffect(() => {
+    if (typeof window !== undefined) {
+      if (!localStorage.getItem("cart")) {
+        return <p className="alert text-center text-white alert-success">Please add something into the cart</p>
+      }
+    }
     setProducts(loadCart());
     
   }, [reload]);
