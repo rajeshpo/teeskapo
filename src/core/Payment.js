@@ -128,7 +128,7 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
         </div>
         <div> 
         <p id="sentAddress" className="text-white mb-3 mt-3"></p>
-        <button id="paynow"
+        <button style={{display:"none"}} id="paynow"
         onClick={razorPayPaymentHandler}
         className="btn btn-success btn-block rounded">
           Pay Now
