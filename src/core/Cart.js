@@ -12,6 +12,8 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
   const [showQuantity,setShowQuantity]=useState(1);
+  
+  
  
    
  
@@ -78,8 +80,10 @@ products.map((p,i)=>{
     );
   };
 
+  
   const calculateTotal=(e)=>{
     e.preventDefault(); 
+    
     const uniqueValues=[...totalDummyPrice.reduce((map,obj)=>map.set(obj.id,obj),new Map()).values()]
    
   handsome(uniqueValues);
@@ -91,7 +95,7 @@ products.map((p,i)=>{
       amount=amount+p.price
      })
     document.getElementById("getAmount").innerHTML=`Amount to Pay `+amount+` Rs/-`
-   
+    
    }
   const loadCheckout = () => {
     return (
@@ -126,8 +130,7 @@ products.map((p,i)=>{
         
         <div className="col-8">
         {loadCheckout()}
-          <Payment products={uniqueCart} setReload={setReload} />
-           
+        <Payment products={uniqueCart} setReload={setReload} />
         </div>
       </div>):(     <div className="row text-center">
         <div className="col-6">
@@ -141,7 +144,7 @@ products.map((p,i)=>{
         
         <div className="col-6">
         {loadCheckout()}
-          <Payment products={uniqueCart} setReload={setReload} />
+        <Payment products={uniqueCart} setReload={setReload} />
            
         </div>
       </div>)}

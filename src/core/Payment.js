@@ -33,7 +33,7 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
     let userId = isAutheticated() && isAutheticated().user._id;
     const token = isAutheticated() && isAutheticated().token;
      
-    const API_URL = `http://localhost:8000/razorpay/`
+    const API_URL = `https://tshirtsonline.herokuapp.com/api/razorpay/`
     const orderUrl = `${API_URL}order`;
     const response = await Axios.get(orderUrl);
     const { data } = response;
@@ -128,7 +128,7 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
         </div>
         <div> 
         <p id="sentAddress" className="text-white mb-3 mt-3"></p>
-        <button style={{display:"none"}} id="paynow"
+        <button id="paynow"
         onClick={razorPayPaymentHandler}
         className="btn btn-success btn-block rounded">
           Pay Now

@@ -19,6 +19,7 @@ const Card = ({
   reload = undefined,
   showQuantity,
   calculatePrice,
+   
   
   
  
@@ -109,7 +110,7 @@ const Card = ({
   const total=value*cartPrice;
  
   const handleChange=(e)=>{
-   
+    
     setValue(e.target.value); 
     calculatePrice(e.target.value*cartPrice,productId);
     
