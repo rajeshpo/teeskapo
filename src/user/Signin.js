@@ -9,9 +9,9 @@ import { ToastContainer, toast } from 'react-toastify';
   toast.configure()
 
   const notify=()=>{
-    toast("Logging In !", {
+    toast.success("Logging In !", {
      position: "top-right",
-     autoClose: 4000,
+     autoClose: 3000,
      hideProgressBar: false,
      closeOnClick: true,
      pauseOnHover: true,
@@ -19,6 +19,7 @@ import { ToastContainer, toast } from 'react-toastify';
      progress: undefined,
      })
   }
+   
     
 const Signin = () => {
   const [values, setValues] = useState({
@@ -38,7 +39,7 @@ const Signin = () => {
 
   const onSubmit = event => {
     event.preventDefault();
-    notify()
+    
     setValues({ ...values, error: false, loading: true });
     signin({ email, password })
       .then(data => {
@@ -50,10 +51,11 @@ const Signin = () => {
               ...values,
               didRedirect: true
             });
+            notify()
           });
         }
       })
-      .catch(console.log("signin request failed"));
+       
   };
 
   const performRedirect = () => {

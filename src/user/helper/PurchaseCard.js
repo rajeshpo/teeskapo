@@ -1,45 +1,54 @@
 import React from 'react'
-import ImageHelper2 from "../../core/helper/ImageHelper2";
+import ImageHelper2 from '../../core/helper/ImageHelper2';
+ 
 
 const PurchaseCard=(product)=> {
 
-    const products=product;
+     const date=product.product.createdAt
+    console.log(product);
+    const map=product.product.products
+    const map1=product.product.products.length
+    console.log(map); 
     
-     const productId=products.product.products[0]._id;
-     const date=products.product.createdAt;
-     const time=products.product.time;
-  // const category=products?(product.category.name):"DEFAULT"
-  if(!product){
-    return <div className="card text-white bg-dark border border-info">
-     
-    <p className="text-center text-white">Your orders appear here! Please buy something and thanks in advance.</p>
-  </div>
-  }
    
+     let k=0;
+let m=0;     
    
     return (
-        <div className="card text-white bg-dark border border-info">
-     
-      <div className="card-header lead"><small><strong>Ordered {date.slice(0,10)}</strong> </small></div>
-      <div className="card-header lead"><small><strong>Time {time}</strong> </small></div>
-      <div className="card-body">
           
-        <p className="lead bg-success font-weight-normal text-wrap">
-        <small><strong>Status : { products.product.status}</strong> </small>
-        </p>
+        <div className="card text-white bg-dark border border-info">
+      <small><strong>Ordered {date.slice(0,10)}</strong></small>
       
+        <small><strong>Status : {product.product.status  }</strong> </small>
+        <small><strong>Amount : { product.product.amount }</strong> </small>
+        <small><strong>Name : {product.product.name }</strong> </small>
+        <small><strong>OrderId : { product.product._id}</strong> </small>
+        <small><strong>Total Products : { map1}</strong> </small>
+        
+        { 
+              
+    map.map((i,p)=>{
+         
+      let n=k++
+        return  <small><strong>Product Name : {map[n].name} {map[n].price} RS/-</strong> </small>
+    })
+    
+     }
+     { 
+              
+              map.map((i,p)=>{
+                   
+                let n=m++
+                  return <ImageHelper2  product={map[n]._id}/>
+              })
+              
+               }
+     
+     
        
-        <p className="lead bg-info rounded font-weight-normal text-wrap">
-        <small><strong>Amount : { products.product.amount} RS/-</strong> </small>
-        </p>
-      <p className="lead bg-info rounded font-weight-normal text-wrap">
-        <small><strong> Product : {products.product.products[0].name}</strong> </small>
-        </p>
-       
-        <ImageHelper2  product={productId} />
-
-        </div>
+        
     </div>
+ 
   );
     
     }

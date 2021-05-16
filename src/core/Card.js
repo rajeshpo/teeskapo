@@ -51,7 +51,6 @@ const Card = ({
  //alerts
   
   const cartTitle = product ? product.name : "A photo from pexels";
-  const productId=product?product._id:"DEFAULT ID"
   const cartDescrption = product ? product.description : "Default description";
   const cartPrice = product ? product.price : "DEFAULT";
   const category=product?(product.category.name):"DEFAULT"
@@ -93,7 +92,7 @@ const Card = ({
         onClick={() => {
           removeItemFromCart(product._id);
           setReload(!reload);
-          window.location.reload()
+          
         
     
         
@@ -106,21 +105,7 @@ const Card = ({
     );
   };
   let w = window.innerWidth;
-  const [value,setValue]=useState(1)
-  const total=value*cartPrice;
- 
-  const handleChange=(e)=>{
-    
-    setValue(e.target.value); 
-    calculatePrice(e.target.value*cartPrice,productId);
-    
-   
- 
-  }
- 
-  
-   
- 
+
   return (
     <div className="card text-white bg-dark border border-info mb-2">
      
@@ -133,16 +118,7 @@ const Card = ({
           {cartDescrption}
         </p>
         <p className="lead bg-secondary font-weight-normal text-wrap rounded">Rs/- {cartPrice}</p>
-        {showQuantity?(<div> <p className="lead bg-info font-weight-normal text-wrap rounded">Total Rs/- {total}</p>
-        <form className="form mb-2">
-        <select name="Quantity" id="Quantity" onChange={handleChange} value={value}>
-          <option value="1">1</option>
-          <option value="2" >2</option>
-          <option value= "3">3</option>
-          <option value="4">4</option>
-        </select>
          
-        </form></div>):""}
         
     
       {

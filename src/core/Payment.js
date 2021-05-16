@@ -10,6 +10,7 @@ import emailjs from 'emailjs-com';
 
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom'
   toast.configure()
 
 export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
@@ -17,6 +18,8 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
   const name=isAutheticated()&&isAutheticated().user.name;
   const email=isAutheticated()&&isAutheticated().user.email;
   const [add,setAdd]=useState("")
+  const [shopping,setShopping]=useState(false)
+   
   const notify=()=>{
     toast.success(`Thanks for shopping with us ${name}`, {
      position: "top-center",
@@ -28,8 +31,17 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
      progress: undefined,
      })
   }
+
+  const getAmount=()=>{
+    let amount=0;
+    products.map((p,i)=>{
+      amount=amount+p.price;
+    })
+    return amount
+  }
    
    const razorPayPaymentHandler=async()=> {
+    document.getElementById("paynow").innerHTML="One second I am on my way..."
     let userId = isAutheticated() && isAutheticated().user._id;
     const token = isAutheticated() && isAutheticated().token;
      
@@ -77,6 +89,8 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
              setReload(!reload)
         
              notify()
+             setShopping(true)
+            
              
          }
          
@@ -105,12 +119,13 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
       });
     document.getElementById("address").style.display="none";
     document.getElementById("sentAddress").innerHTML="Address Sent Successfully";
+    document.getElementById("sentAddress").style="text-center"
     document.getElementById("paynow").style.display="block";
 
   }
 
   console.log(add);
-  
+  let w = window.innerWidth;
     return (
        <div>
          {products.length>0?(<div>
@@ -127,14 +142,22 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
     </form> 
         </div>
         <div> 
-        <p id="sentAddress" className="text-white mb-3 mt-3"></p>
-        <button style={{display:"none"}} id="paynow"
+        <p id="sentAddress" className="text-success mb-3 mt-3 text-center"></p>
+        <p id="sentAddress" className="text-success mb-3 mt-3 text-center">Total Amount to pay {getAmount()} Rs/-</p>
+
+         {w>768?(<button style={{display:"none",alignItems:'center'}} id="paynow"
         onClick={razorPayPaymentHandler}
         className="btn btn-success btn-block rounded">
           Pay Now
-        </button>
+        </button>):(<button style={{display:"none"}} id="paynow"
+        onClick={razorPayPaymentHandler}
+        className="btn btn-success btn-block rounded">
+          Pay Now
+        </button>)}
       </div>
       </div>):""}
+
+      {shopping&&<Link to ="/" className="btn btn-success">Continue Shopping</Link>}
        </div>
     )
    

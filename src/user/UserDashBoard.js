@@ -40,7 +40,7 @@ const UserDashBoard = () => {
              return (
                 w<768?( <div key={index} className="col-6 mb-4">
              <PurchaseCard product={product} />
-           </div>):( <div key={index} className="col-4 mb-4">
+           </div>):( <div key={index} className="col-3 mb-4">
              <PurchaseCard product={product} />
            </div>)
            

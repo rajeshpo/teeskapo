@@ -11,58 +11,31 @@ import { Link } from "react-router-dom";
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(false);
-  const [showQuantity,setShowQuantity]=useState(1);
   
-  
- 
+  const [quotes,setQuotes]=useState("")
    
- 
- 
+  
   useEffect(() => {
     if (typeof window !== undefined) {
       if (!localStorage.getItem("cart")) {
         return <p className="alert text-center text-white alert-success">Please add something into the cart</p>
       }
     }
+    
     setProducts(loadCart());
+    
     
   }, [reload]);
 
-   console.log("cartProducts",products);
-   const uniqueCart=[...products.reduce((map,obj)=>map.set(obj._id,obj),new Map()).values()]
-  console.log("uniqueCart",uniqueCart);
- 
-const totalDummyPrice=[];
-
-products.map((p,i)=>{
-  let price=p.price;
-  let id=p._id;
-  totalDummyPrice.push({price,id})
- 
-})
- 
-  const calculatePrice=(price,id)=>{
-   
-     if(totalDummyPrice.length===0){
-      totalDummyPrice.push({price,id})
-     }
-  totalDummyPrice.map((p,i)=>{
-    if(p.id===id){
-    p.price=price;
-    }
-    else if(p.id!==id){
-      totalDummyPrice.push({price,id})
-    }
-  })
   
-  }
-   
+ 
+ 
    
   const loadAllProducts = uniqueCart => {
   
     return (
       <div>
-        {uniqueCart.map((product, index) => (
+        {products.map((product, index) => (
           <div>
           <Card
             key={index}
@@ -71,13 +44,7 @@ products.map((p,i)=>{
             addtoCart={false}
             setReload={setReload}
             reload={reload}
-            showQuantity={showQuantity}
-            
-           
-           calculatePrice={calculatePrice}
-            
-           
-          />
+             />
            
           </div>
         ))}
@@ -85,40 +52,58 @@ products.map((p,i)=>{
     );
   };
 
-  
-  const calculateTotal=(e)=>{
-    e.preventDefault(); 
-    
-    const uniqueValues=[...totalDummyPrice.reduce((map,obj)=>map.set(obj.id,obj),new Map()).values()]
-   
-  handsome(uniqueValues);
-   }
 
-   const handsome=(uniqueValues)=>{
-     let amount=0;
-     uniqueValues.map((p,i)=>{
-      amount=amount+p.price
-     })
-    document.getElementById("getAmount").innerHTML=`Amount to Pay `+amount+` Rs/-`
+
+    const getAmount=(products)=>{
+      let amount=0;
+      products.map((p,i)=>{
+        amount=amount+p.price;
+      })
+      return amount;
+    }
+
+    //motivational quotes 
     
-   }
+    
+
+    
   const loadCheckout = () => {
     return (
       <div>
-        {uniqueCart.length>0?( <div>
-       <p className="alert alert-success" id="getAmount">Amount</p>
-      <button className="btn btn-danger" onClick={calculateTotal}>Calculate</button>
-      
+        {products.length>0?( <div>
+       <p className="alert alert-success" id="getAmount">Amount to pay {getAmount(products)} Rs/-</p>
+         <div>
+         <Link to="/user/paymentpage" className="btn btn-success btn-block rounded mt-3">
+         Ready to pay
+        </Link>
+         </div>
+         <div className="quotes">
+
+         </div>
+
       </div>):<p className="alert alert-warning">No products in the cart</p>}
       </div>
     );
   };
 
 
- 
+  fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+      if(!response){
+        return document.getElementById("quote").innerHTML="Getting a good quote for you !!!"
+       }
+       else return response.json();
+    })
+    .then(function(data) {
+     if(!data){
+      document.getElementById("quote").innerHTML="Getting a good quote for you !!!"
+     }
+     else{
+      document.getElementById("quote").innerHTML=data[Math.floor(Math.random() * 1500)].text;
+     }
+    })
 
-   
-   
+  
     
   let w = window.innerWidth;
   return (
@@ -126,7 +111,7 @@ products.map((p,i)=>{
   {w>768?(     <div className="row text-center">
         <div className="col-4">
           {products.length > 0 ? (
-            loadAllProducts(uniqueCart)
+            loadAllProducts(products)
           ) : (
              <Link to="/"><p className="alert alert-success btn-block rounded">Add a product</p></Link>
           )}
@@ -135,12 +120,16 @@ products.map((p,i)=>{
         
         <div className="col-8">
         {loadCheckout()}
-        <Payment products={uniqueCart} setReload={setReload} />
+        <div className="container mt-3 mb-3 border border-white mt-5 py-2 px-1">
+        <h5 className="text-success" style={{textDecoration:"overline"}}>Inspirational Quotes</h5>
+           <p className="text-white" id="quote"></p>
+        </div>
+         
         </div>
       </div>):(     <div className="row text-center">
         <div className="col-6">
           {products.length > 0 ? (
-            loadAllProducts(uniqueCart)
+            loadAllProducts(products)
           ) : (
              <Link to="/"><p className="alert alert-success btn-block rounded">Add a product</p></Link>
           )}
@@ -149,8 +138,12 @@ products.map((p,i)=>{
         
         <div className="col-6">
         {loadCheckout()}
-        <Payment products={uniqueCart} setReload={setReload} />
-           
+        <div className="container mt-3 mb-3 border border-white mt-5 py-3 px-3">
+        <h5 className="text-success" style={{textDecoration:"overline"}}>Motivation</h5>
+
+           <p className="text-white" id="quote"></p>
+        </div>
+    
         </div>
       </div>)}
     </Base>

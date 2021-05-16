@@ -18,7 +18,8 @@ import UpdateCategory from "./admin/UpdateCategory";
 import ManageOrders from "./admin/ManageOrders";
 import TodayOrders from "./admin/TodayOrders";
  import privacy from './policy.js'
-// import EmptyCart from "./core/EmptyCart";
+import finalStage from "./core/finalStage";
+
 
 const Routes = () => {
   return (
@@ -30,6 +31,7 @@ const Routes = () => {
         <Route path="/cart" exact component={Cart} />  
         <Route path="/corona-tracker" exact component={Corona} />  
         <PrivateRoute path="/user/dashboard" exact component={UserDashBoard} />
+        <PrivateRoute path="/user/paymentpage" exact component={finalStage} />
         <PrivateRoute path="/privacypolicy" exact component={privacy} />
         <AdminRoute path="/admin/dashboard" exact component={AdminDashBoard} />
         <AdminRoute path="/admin/orders" exact component={ManageOrders} />

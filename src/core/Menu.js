@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import { Link, Redirect, withRouter } from "react-router-dom";
 import { signout, isAutheticated } from "../auth/helper";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+  toast.configure()
 const currentTab = (history, path) => {
   if (history.location.pathname === path) {
     return { color: "#2ecc72" };
@@ -10,7 +12,17 @@ const currentTab = (history, path) => {
   }
 };
 
-
+const notifySignout=()=>{
+  toast.success("Signed out !", {
+   position: "top-right",
+   autoClose: 3000,
+   hideProgressBar: false,
+   closeOnClick: true,
+   pauseOnHover: true,
+   draggable: true,
+   progress: undefined,
+   })
+}
 const Menu = ({ history }) => (
   
   <div className="float mobile">
@@ -83,9 +95,14 @@ const Menu = ({ history }) => (
           <span
             className="list-item text-warning"
             onClick={() => {
+              notifySignout() 
               signout(() => {
-                window.location.reload()});
-            }}
+                
+                window.location.reload()
+                });
+                 
+
+               }}
           > 
             Signout
           </span>
