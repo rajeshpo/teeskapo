@@ -3,9 +3,9 @@ import "../styles.css";
 import Base from "./Base";
 import { getProducts } from "./helper/coreapicalls";
 import { isAutheticated } from "../auth/helper";
-import Wintercategory from "./categoryHelpers/Wintercategory";
+import Biryani from "./categoryHelpers/Biryani";
 // import DemoCarousel from "./Slider";
-import Summercategory from "./categoryHelpers/Summercategory";
+import Rotis from "./categoryHelpers/Rotis";
 
 
 export default function Home() {
@@ -45,12 +45,12 @@ export default function Home() {
 <div id="testimonial-carousel" className="carousel slide bg-dark" data-ride="false">
   <div className="carousel-inner">
     <div className="carousel-item active container-fluid">
-      <h5 className="testimonial-text">I am Rajesh, this restaurant has really a good service capability.  </h5>
+      <h5 className="testimonial-text">I am Rajesh, this website has really a good service capability.  </h5>
       <img loading="lazy" className="testimonial-image" src="https://instagram.fhyd11-1.fna.fbcdn.net/v/t51.2885-19/s320x320/89710537_2374801026145303_1096441619512557568_n.jpg?tp=1&_nc_ht=instagram.fhyd11-1.fna.fbcdn.net&_nc_ohc=Jnnc8r0BWWwAX_i7vQe&edm=ABfd0MgAAAAA&ccb=7-4&oh=a6a421f4b0b211516a30f8bf1ce305d1&oe=60ACC05E&_nc_sid=7bff83" alt="dog-profile"/>
       <em>Rajesh</em>
     </div>
     <div className="carousel-item container-fluid">
-      <h5 className="testimonial-text">I am Dandugula Venkatesh, great experience in this restaurant</h5>
+      <h5 className="testimonial-text">I am Dandugula Venkatesh, great experience with the dishes</h5>
       <img loading="lazy" className="testimonial-image" src="https://scontent.fhyd11-1.fna.fbcdn.net/v/t1.6435-9/p843x403/54433275_1133909026770566_425160784021028864_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=174925&_nc_ohc=Xj9y1G9R3T0AX9QmYBw&_nc_oc=AQleYd0EyhjtzSUJjiKcayeRjt_azvercP90gsXrfMlu3AG93aN_ah1jMNA7W-95ASDVLO3Au4tEQEoKJYOq3D-c&_nc_ht=scontent.fhyd11-1.fna&tp=6&oh=1a34a468f57114720bb394996772dfbd&oe=60ABAE5C" alt="lady-profile"/>
       <em> Venkatesh</em>
     </div>
@@ -71,10 +71,10 @@ export default function Home() {
       {products.length>0?( <div className="row text-center">
          
        
-         <h4 className="text-success cat mb-4">Winter products</h4>
-         <Wintercategory/>
-         <h4 className="text-success cat mb-4">Summer products</h4>
-         <Summercategory/>
+         <h4 className="text-success cat mb-4">Biryani Items</h4>
+         <Biryani/>
+         <h4 className="text-success cat mb-4">Rotis and Curries</h4>
+         <Rotis/>
          
         </div>):(<h4 style={{textAlign:"center"}}>Loading.....</h4>)}
     </Base>
