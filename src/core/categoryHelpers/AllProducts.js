@@ -94,7 +94,7 @@ export default function AllProducts() {
  
   
 })}
-</div>):"No Items...")}
+</div>):<p className="offset-1">No Items</p>)}
      
    </div>
   )
