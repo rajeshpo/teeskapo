@@ -8,7 +8,7 @@ import { getProducts } from "../helper/coreapicalls";
 import { isAutheticated } from "../../auth/helper/index";
 // import DemoCarousel from "./Slider";
 
-export default function Rotis() {
+export default function AllProducts() {
    
   const {user,token}=isAutheticated();
    
@@ -16,8 +16,6 @@ export default function Rotis() {
    
   const [error, setError] = useState(false);
   const [search,setSearch]=useState("")
-   
- 
 
   const loadAllProduct = () => {
     getProducts().then(data => {
@@ -53,12 +51,10 @@ export default function Rotis() {
       
   }
   let w = window.innerWidth;
- 
-   
   return (
     <div className="row text-center">
-    <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Roti & curries</h4>
-    {w>768?(<div className="flex-items1">
+    <h4 className="text-white ml-3" style={{textDecoration:"overline"}}>All Items</h4>
+     {w>768?(<div className="flex-items1">
         <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
         searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
       </div>):(
@@ -67,29 +63,38 @@ export default function Rotis() {
         searchItems(e.target.value)}}/>
       </div>
       )}
-     <div className="row mt-4">
-       {products.map((product, index) => {
-       
-        let w = window.innerWidth;
-        if(product.category.name){
-    
-   if(product.category.name==="rotis"){
-     return (
-      w<768?( <div key={index} className="col-6 mb-4">
+         
+     {w>768?(products.length>0?( <div className="row mt-5">
+
+{products.map((product, index) => { 
+  let w = window.innerWidth;
+ return (
+      w<768?( <div key={index} className="col-6">
              <Card product={product} />
            </div>):( <div key={index} className="col-3 mb-4">
              <Card product={product} />
            </div>)
            
   );
-   } 
-  }
-  else{
-    return <p>Loading</p>
-  }
-         
-       })}
-     </div>
+ 
+  
+})}
+</div>):<p className="offset-1">No Items</p>):(products.length>0?( <div className="row mt-3">
+
+{products.map((product, index) => { 
+  let w = window.innerWidth;
+ return (
+      w<768?( <div key={index} className="col-6">
+             <Card product={product} />
+           </div>):( <div key={index} className="col-3 mb-4">
+             <Card product={product} />
+           </div>)
+           
+  );
+ 
+  
+})}
+</div>):"No Items...")}
      
    </div>
   )

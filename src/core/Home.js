@@ -3,9 +3,11 @@ import "../styles.css";
 import Base from "./Base";
 import { getProducts } from "./helper/coreapicalls";
 import { isAutheticated } from "../auth/helper";
-import Biryani from "./categoryHelpers/Biryani";
+import AllProducts from "./categoryHelpers/AllProducts";
 // import DemoCarousel from "./Slider";
 import Rotis from "./categoryHelpers/Rotis";
+import Card from "./Card";
+
 
 
 export default function Home() {
@@ -14,7 +16,8 @@ export default function Home() {
   
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(false);
-  
+  const [search,setSearch]=useState("")
+   
 
   const loadAllProduct = () => {
     getProducts().then(data => {
@@ -31,6 +34,9 @@ export default function Home() {
   }, []);
 
     
+  let w = window.innerWidth;
+  
+   
 
   return (
     <Base title={isAutheticated()?`Hii ${user.name.toUpperCase()}`:"Hii User"} description={isAutheticated()?"Welcome to the store":"Come on!! enter into our extending family"}>
@@ -67,16 +73,18 @@ export default function Home() {
        </div>
      </>
       
-
-      {products.length>0?( <div className="row text-center">
+ {products.length>0?( <div className="row text-center">
          
        
-         <h4 className="text-success cat mb-4">Biryani Items</h4>
-         <Biryani/>
-         <h4 className="text-success cat mb-4">Rotis and Curries</h4>
-         <Rotis/>
+          
+         <AllProducts/>
+          
+          
+        
          
         </div>):(<h4 style={{textAlign:"center"}}>Loading.....</h4>)}
-    </Base>
+
+ 
+     </Base>
   );
 }
