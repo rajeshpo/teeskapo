@@ -45,10 +45,10 @@ const Base = ({
         <Link to="/user/rotisandcurries" style={{color:"white"}}  className="category-hover"><img className="category-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrYtsDgYDkXiGZF21iSEyS-jn0BSDMLifoqQ&usqp=CAU" alt="Default"/><p style={{fontFamily:"initial",fontSize:"12px"}}>Rotis, Curries</p></Link>
       </div>
       <div className="col-3">
-        <Link to="/user/biryaniitems" style={{color:"white"}}  className="category-hover"> <img className="category-image"  src="https://media.istockphoto.com/vectors/soft-drink-bottles-vector-id689654950" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Cool Drinks</p></Link>
+        <Link to="/user/cooldrinks" style={{color:"white"}}  className="category-hover"> <img className="category-image"  src="https://media.istockphoto.com/vectors/soft-drink-bottles-vector-id689654950" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Cool Drinks</p></Link>
       </div>
       <div className="col-3">
-        <Link to="/user/biryaniitems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Fast Food</p></Link>
+        <Link to="/user/fastfooditems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Fast Food</p></Link>
       </div>
       </div>)):""}     
       <div className={className}>{children}</div>
