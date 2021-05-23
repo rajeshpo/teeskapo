@@ -3,6 +3,7 @@ import Menu from "./Menu";
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
 import Rotis from "./categoryHelpers/Rotis";
+import { isAutheticated } from "../auth/helper";
 
 const Base = ({
   title = "My Title",
@@ -12,6 +13,7 @@ const Base = ({
 }) => {
 
   let w = window.innerWidth;
+   
   return (
     <div>
     <Menu />
@@ -21,7 +23,8 @@ const Base = ({
         <h2 className="display-4">{title}</h2>
         <p className="lead">{description}</p>
       </div>
-     {w>768?(  <div className="container-fluid Categories row">
+
+      {isAutheticated()?(w>768?(  <div className="container-fluid Categories row">
       <div>
         <Link to="/user/biryaniitems" style={{color:"white"}} className="category-hover"><img className="category-image" src="https://image.freepik.com/free-vector/delicious-chicken-biryani-bowl_23-2148724730.jpg" alt="Default"/>  Biryani Items</Link>
       </div>
@@ -29,10 +32,10 @@ const Base = ({
         <Link to="/user/rotisandcurries" style={{color:"white"}}  className="category-hover"><img className="category-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrYtsDgYDkXiGZF21iSEyS-jn0BSDMLifoqQ&usqp=CAU" alt="Default"/>  Rotis and Curries</Link>
       </div>
       <div>
-        <Link to="/user/biryaniitems" style={{color:"white"}}  className="category-hover"> <img className="category-image"  src="https://media.istockphoto.com/vectors/soft-drink-bottles-vector-id689654950" alt="Default"/>  Cool Drinks</Link>
+        <Link to="/user/cooldrinks" style={{color:"white"}}  className="category-hover"> <img className="category-image"  src="https://media.istockphoto.com/vectors/soft-drink-bottles-vector-id689654950" alt="Default"/>  Cool Drinks</Link>
       </div>
       <div>
-        <Link to="/user/biryaniitems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/>  Fast Food Items</Link>
+        <Link to="/user/fastfooditems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/>  Fast Food Items</Link>
       </div>
       </div>):(  <div className="container-fluid Categories row ml-1">
       <div className="col-3">
@@ -47,7 +50,7 @@ const Base = ({
       <div className="col-3">
         <Link to="/user/biryaniitems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Fast Food</p></Link>
       </div>
-      </div>)}
+      </div>)):""}     
       <div className={className}>{children}</div>
     </div>
     <footer className=" bg-dark mt-auto py-1">

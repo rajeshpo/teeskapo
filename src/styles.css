@@ -223,7 +223,7 @@ ul{
  
 
 .perspective-right:hover{
-  transform: perspective(1500px) rotateY(-10deg);
+  transform: perspective(1500px) rotateY(9deg);
   transition: transform .5s ease 0s;
 }
 .Categories{
@@ -234,7 +234,7 @@ ul{
  justify-content:space-evenly;
 }
 .category-image{
-  width:60px;
+  width:80px;
   border-radius:10%;
   margin-bottom: 10px;
   

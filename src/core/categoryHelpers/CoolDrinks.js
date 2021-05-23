@@ -54,7 +54,7 @@ export default function Rotis() {
  
    
   return (
-     <Base title="Rotis and Curries">
+     <Base title="Cool Drinks" description="Get chill with the drinks">
        <div className="row text-center">
     <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Roti & curries</h4>
     {w>768?(<div className="flex-items1">
@@ -72,7 +72,7 @@ export default function Rotis() {
         let w = window.innerWidth;
         if(product.category.name){
     
-   if(product.category.name==="rotis"){
+   if(product.category.name==="cooldrinks"){
      return (
       w<768?( <div key={index} className="col-6 mb-4">
              <Card product={product} />

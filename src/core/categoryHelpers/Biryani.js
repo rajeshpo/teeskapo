@@ -56,7 +56,7 @@ export default function Rotis() {
   return (
      <Base title="Rotis and Curries">
        <div className="row text-center">
-    <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Roti & curries</h4>
+    <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Biryani Items</h4>
     {w>768?(<div className="flex-items1">
         <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
         searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
@@ -72,7 +72,7 @@ export default function Rotis() {
         let w = window.innerWidth;
         if(product.category.name){
     
-   if(product.category.name==="rotis"){
+   if(product.category.name==="biryani"){
      return (
       w<768?( <div key={index} className="col-6 mb-4">
              <Card product={product} />
