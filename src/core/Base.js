@@ -34,7 +34,7 @@ const Base = ({
       <div>
         <Link to="/user/biryaniitems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/>  Fast Food Items</Link>
       </div>
-      </div>):(  <div className="container-fluid Categories row">
+      </div>):(  <div className="container-fluid Categories row ml-2">
       <div className="col-3">
         <Link to="/user/biryaniitems" style={{color:"white"}} className="category-hover"><img className="category-image" src="https://image.freepik.com/free-vector/delicious-chicken-biryani-bowl_23-2148724730.jpg" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Biryani Items</p></Link>
       </div>
