@@ -220,3 +220,38 @@ ul{
   margin-top:10px;
   font-size: large;
 }
+ 
+
+.perspective-right:hover{
+  transform: perspective(1500px) rotateY(-10deg);
+  transition: transform .5s ease 0s;
+}
+.Categories{
+  height:100px;
+  width: 100%;
+  background-color:#343a40;
+ display: flex;
+ justify-content:space-evenly;
+}
+.category-image{
+  width:60px;
+  border-radius:10%;
+  margin-bottom: 10px;
+  
+}
+.category-hover:hover{
+  text-decoration: none;
+}
+ 
+@media(max-width:768px){
+  .category-image{
+    width:50px;
+    border-radius:10%;
+    margin-bottom: 10px;
+    
+  }
+  category-hover:hover{
+    text-decoration: none;
+  }
+    
+  }

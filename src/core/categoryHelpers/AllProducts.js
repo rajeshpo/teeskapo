@@ -15,7 +15,7 @@ export default function AllProducts() {
   const [products, setProducts] = useState([]);
    
   const [error, setError] = useState(false);
-  const [search,setSearch]=useState("")
+   
 
   const loadAllProduct = () => {
     getProducts().then(data => {
@@ -55,39 +55,24 @@ export default function AllProducts() {
     <div className="row text-center">
     <h4 className="text-white ml-3" style={{textDecoration:"overline"}}>All Items</h4>
      {w>768?(<div className="flex-items1">
-        <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
+        <input placeholder="Search here"   className="form-control" onChange={(e)=>{ 
         searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
       </div>):(
         <div className="flex-items"><i class="fab fa-searchengin searchphone" style={{float:"right"}}></i>
-        <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
+        <input placeholder="Search here" className="form-control" onChange={(e)=>{
         searchItems(e.target.value)}}/>
       </div>
       )}
          
-     {w>768?(products.length>0?( <div className="row mt-5">
+     {(products.length>0?( <div className="row mt-5">
 
 {products.map((product, index) => { 
   let w = window.innerWidth;
  return (
       w<768?( <div key={index} className="col-6">
              <Card product={product} />
-           </div>):( <div key={index} className="col-3 mb-4">
-             <Card product={product} />
-           </div>)
-           
-  );
- 
-  
-})}
-</div>):<p className="offset-1">No Items</p>):(products.length>0?( <div className="row mt-3">
-
-{products.map((product, index) => { 
-  let w = window.innerWidth;
- return (
-      w<768?( <div key={index} className="col-6">
-             <Card product={product} />
-           </div>):( <div key={index} className="col-3 mb-4">
-             <Card product={product} />
+           </div>):( <div key={index} className="col-3 mb-4 perspective-right">
+             <Card product={product}  />
            </div>)
            
   );

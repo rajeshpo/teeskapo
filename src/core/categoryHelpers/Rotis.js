@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "../../styles.css";
- 
- 
+import "../../styles.css"; 
 import Card from "../Card";
 import { getProducts } from "../helper/coreapicalls";
- 
 import { isAutheticated } from "../../auth/helper/index";
-// import DemoCarousel from "./Slider";
+import Base from "../Base";
+ 
 
 export default function Rotis() {
    
@@ -56,7 +54,8 @@ export default function Rotis() {
  
    
   return (
-    <div className="row text-center">
+     <Base title="Rotis and Curries">
+       <div className="row text-center">
     <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Roti & curries</h4>
     {w>768?(<div className="flex-items1">
         <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
@@ -84,13 +83,14 @@ export default function Rotis() {
   );
    } 
   }
-  else{
-    return <p>Loading</p>
-  }
+   if(!product){
+     return <p className="text-white text-center">loading...</p>
+   }
          
        })}
      </div>
      
    </div>
+     </Base>
   )
 }

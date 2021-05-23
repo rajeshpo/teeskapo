@@ -19,6 +19,7 @@ import ManageOrders from "./admin/ManageOrders";
 import TodayOrders from "./admin/TodayOrders";
  import privacy from './policy.js'
 import finalStage from "./core/finalStage";
+import Rotis from "./core/categoryHelpers/Rotis";
 
 
 const Routes = () => {
@@ -32,6 +33,7 @@ const Routes = () => {
         <Route path="/corona-tracker" exact component={Corona} />  
         <PrivateRoute path="/user/dashboard" exact component={UserDashBoard} />
         <PrivateRoute path="/user/paymentpage" exact component={finalStage} />
+        <PrivateRoute path="/user/rotisandcurries" exact component={Rotis} />
         <PrivateRoute path="/privacypolicy" exact component={privacy} />
         <AdminRoute path="/admin/dashboard" exact component={AdminDashBoard} />
         <AdminRoute path="/admin/orders" exact component={ManageOrders} />
