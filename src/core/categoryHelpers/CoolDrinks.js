@@ -56,7 +56,7 @@ export default function Rotis() {
   return (
      <Base title="Cool Drinks" description="Get chill with the drinks">
        <div className="row text-center">
-    <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Roti & curries</h4>
+    <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Cool Drinks</h4>
     {w>768?(<div className="flex-items1">
         <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
         searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
