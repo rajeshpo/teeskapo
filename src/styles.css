@@ -231,7 +231,7 @@ ul{
   width: 100%;
   background-color:#343a40;
  display: flex;
- justify-content:space-evenly;
+ justify-content:space-around;
 }
 .category-image{
   width:80px;
