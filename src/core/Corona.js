@@ -27,7 +27,7 @@ const  Corona=()=>{
   }
  return(
       <Base title="Corona News" description="Please maintain social distancing">
-    <div className="container text-center">
+    <div className="container text-center mt-5">
     <img  className="mb-3 corona-image" width="200px" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6NN88L3rmowdVDLtyU1d7KMojLDpiy7zGkADUElqx-mSS80Km&usqp=CAU"} alt={"covid-19"}/>
     <h1 className="rounded mt-50px">COVID</h1>  
      <p className="alert-success rounded text-danger">Stay Safe Wear Mask</p>
