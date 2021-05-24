@@ -74,7 +74,7 @@ export default function Rotis() {
     
    if(product.category.name==="cooldrinks"){
      return (
-      w<768?( <div key={index} className="col-6 mb-4">
+      w<768?( <div key={index} className="col-6">
              <Card product={product} />
            </div>):( <div key={index} className="col-3 mb-4 perspective-right">
              <Card product={product} />

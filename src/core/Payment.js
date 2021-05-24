@@ -128,7 +128,7 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
   let w = window.innerWidth;
     return (
        <div>
-         {products.length>0?(<div>
+         {products.length>0?(<div className="mt-5">
         <div className="container mt-3 mb-3 border border-white" id="address">
         <form className="contact-form form-group" onSubmit={sendEmail}>
       <input className="form-control" type="hidden" name="contact_number" />
@@ -157,7 +157,7 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
       </div>
       </div>):""}
 
-      {shopping&&<Link to ="/" className="btn btn-success">Continue Shopping</Link>}
+      {shopping&&<Link to ="/" className="btn btn-success mt-5">Continue Shopping</Link>}
        </div>
     )
    
