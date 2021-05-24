@@ -126,7 +126,7 @@ const Cart = () => {
         </div>
          
         </div>
-      </div>):(     <div className="row text-center">
+      </div>):(     <div className="row text-center mt-5">
         <div className="col-6">
           {products.length > 0 ? (
             loadAllProducts(products)
