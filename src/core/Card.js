@@ -65,7 +65,7 @@ const Card = ({
 
   //so many notifications bug solved..
    if(count1===1){
-     notify()
+     isAutheticated()&&notify()
      return setCount1(0)
    }
 
