@@ -13,7 +13,7 @@ export default function Rotis() {
   const [products, setProducts] = useState([]);
    
   const [error, setError] = useState(false);
-  const [search,setSearch]=useState("")
+   
    
  
 
@@ -54,15 +54,15 @@ export default function Rotis() {
  
    
   return (
-     <Base title="Rotis and Curries">
-       <div className="row text-center">
+     <Base title="Biryani Items" description="Have a delicious biryani">
+       <div className="row text-center mt-5">
     <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Biryani Items</h4>
     {w>768?(<div className="flex-items1">
-        <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
+        <input placeholder="Search here"   className="form-control" onChange={(e)=>{ 
         searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
       </div>):(
         <div className="flex-items"><i class="fab fa-searchengin searchphone" style={{float:"right"}}></i>
-        <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
+        <input placeholder="Search here"   className="form-control" onChange={(e)=>{ 
         searchItems(e.target.value)}}/>
       </div>
       )}
@@ -86,7 +86,7 @@ export default function Rotis() {
 
          
        })}
-     </div>):(w<768?(<p className="text-white text-center mt-5">Loading...</p>):(<p className="text-white text-center mt-5 offset-3">Loading...</p>))}
+     </div>):(w<768?(<p className="text-white text-center mt-5">Items might be loading or not found.</p>):(<p className="text-white text-center mt-5 offset-3">Items might be loading or not found.</p>))}
 
      
    </div>

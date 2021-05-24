@@ -62,7 +62,7 @@ export default function Rotis() {
         searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
       </div>):(
         <div className="flex-items"><i class="fab fa-searchengin searchphone" style={{float:"right"}}></i>
-        <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
+        <input placeholder="Search here" className="form-control" onChange={(e)=>{ 
         searchItems(e.target.value)}}/>
       </div>
       )}
@@ -76,7 +76,7 @@ export default function Rotis() {
      return (
       w<768?( <div key={index} className="col-6 mb-4">
              <Card product={product} />
-           </div>):( <div key={index} className="col-3 mb-4">
+           </div>):( <div key={index} className="col-3 mb-4 perspective-right">
              <Card product={product} />
            </div>)
            
@@ -86,7 +86,7 @@ export default function Rotis() {
 
          
        })}
-     </div>):(w<768?(<p className="text-white text-center mt-5">Loading...</p>):(<p className="text-white text-center mt-5 offset-3">Loading...</p>))}
+     </div>):(w<768?(<p className="text-white text-center mt-5">Items might be loading or not found</p>):(<p className="text-white text-center mt-5 offset-3">Items might be loading or not found</p>))}
 
      
    </div>

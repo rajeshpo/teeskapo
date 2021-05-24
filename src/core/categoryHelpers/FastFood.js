@@ -13,7 +13,7 @@ export default function Rotis() {
   const [products, setProducts] = useState([]);
    
   const [error, setError] = useState(false);
-  const [search,setSearch]=useState("")
+  
    
  
 
@@ -54,15 +54,15 @@ export default function Rotis() {
  
    
   return (
-     <Base title="Cool Drinks" description="Get chill with the drinks">
-       <div className="row text-center">
-    <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Fast Food Items</h4>
+     <Base title="Fast Food" description="Get chill with the drinks">
+       <div className="row text-center mt-5">
+    <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Fast Food </h4>
     {w>768?(<div className="flex-items1">
-        <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
+        <input placeholder="Search here"   className="form-control" onChange={(e)=>{ 
         searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
       </div>):(
         <div className="flex-items"><i class="fab fa-searchengin searchphone" style={{float:"right"}}></i>
-        <input placeholder="Search here" value={search} className="form-control" onChange={(e)=>{setSearch(e.target.value)
+        <input placeholder="Search here"   className="form-control" onChange={(e)=>{ 
         searchItems(e.target.value)}}/>
       </div>
       )}
@@ -74,9 +74,9 @@ export default function Rotis() {
     
    if(product.category.name==="fastfood"){
      return (
-      w<768?( <div key={index} className="col-6 mb-4">
+      w<768?( <div key={index} className="col-6">
              <Card product={product} />
-           </div>):( <div key={index} className="col-3 mb-4">
+           </div>):( <div key={index} className="col-3 mb-3 perspective-right">
              <Card product={product} />
            </div>)
            
@@ -86,7 +86,7 @@ export default function Rotis() {
 
          
        })}
-     </div>):(w<768?(<p className="text-white text-center mt-5">Loading...</p>):(<p className="text-white text-center mt-5 offset-3">Loading...</p>))}
+     </div>):(w<768?(<p className="text-white text-center mt-5">Items might be loading or not found</p>):(<p className="text-white text-center mt-5 offset-3">Items might be loading or not found</p>))}
 
      
    </div>

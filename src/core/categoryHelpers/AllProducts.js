@@ -79,7 +79,7 @@ export default function AllProducts() {
  
   
 })}
-</div>):<p className="offset-1">No Items</p>)}
+</div>):<p className="text-center ml-5">Items might be loading or not found</p>)}
      
    </div>
   )

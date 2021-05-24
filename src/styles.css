@@ -233,6 +233,13 @@ ul{
  display: flex;
  justify-content:space-around;
 }
+.Categories1{
+  height:100px;
+  width: 100%;
+  background-color:#343a40;
+ display: flex;
+ justify-content:stretch;
+}
 .category-image{
   width:80px;
   border-radius:10%;

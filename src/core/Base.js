@@ -2,7 +2,6 @@ import React from "react";
 import Menu from "./Menu";
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
-import Rotis from "./categoryHelpers/Rotis";
 import { isAutheticated } from "../auth/helper";
 
 const Base = ({
@@ -26,6 +25,9 @@ const Base = ({
 
       {isAutheticated()?(w>768?(  <div className="container-fluid Categories row">
       <div>
+        <Link to="/" style={{color:"white"}} className="category-hover"><img className="category-image" src="https://wallpaper.dog/large/10756163.jpg" alt="Default"/>  All Items</Link>
+      </div>
+      <div>
         <Link to="/user/biryaniitems" style={{color:"white"}} className="category-hover"><img className="category-image" src="https://image.freepik.com/free-vector/delicious-chicken-biryani-bowl_23-2148724730.jpg" alt="Default"/>  Biryani Items</Link>
       </div>
       <div>
@@ -37,7 +39,11 @@ const Base = ({
       <div>
         <Link to="/user/fastfooditems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/>  Fast Food Items</Link>
       </div>
-      </div>):(  <div className="container-fluid Categories row ml-1">
+      </div>):(  <div className="container-fluid Categories1 row ml-1 mb-5">
+      
+      <div className="col-3">
+        <Link to="/" style={{color:"white"}} className="category-hover"><img className="category-image" src="https://wallpaper.dog/large/10756163.jpg" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>All Items</p></Link>
+      </div>
       <div className="col-3">
         <Link to="/user/biryaniitems" style={{color:"white"}} className="category-hover"><img className="category-image" src="https://image.freepik.com/free-vector/delicious-chicken-biryani-bowl_23-2148724730.jpg" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Biryani Items</p></Link>
       </div>
@@ -48,7 +54,7 @@ const Base = ({
         <Link to="/user/cooldrinks" style={{color:"white"}}  className="category-hover"> <img className="category-image"  src="https://media.istockphoto.com/vectors/soft-drink-bottles-vector-id689654950" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Cool Drinks</p></Link>
       </div>
       <div className="col-3">
-        <Link to="/user/fastfooditems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Fast Food</p></Link>
+        <Link to="/user/fastfooditems" style={{color:"white"}}  className="category-hover"> <img className="category-image" src="https://media.istockphoto.com/vectors/funny-fast-food-menu-cartoon-character-vector-id638196212" alt="Default"/><p style={{fontFamily:"initial",fontSize:"10px"}}>Fast Food Items</p></Link>
       </div>
       </div>)):""}     
       <div className={className}>{children}</div>

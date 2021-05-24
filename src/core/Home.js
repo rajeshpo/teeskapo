@@ -48,7 +48,7 @@ export default function Home() {
        <section className="colored-section" id="testimonials">
        
 
-<div id="testimonial-carousel" className="carousel slide bg-dark" data-ride="false">
+<div id="testimonial-carousel" className="carousel slide bg-dark mt-3" data-ride="false">
   <div className="carousel-inner">
     <div className="carousel-item active container-fluid">
       <h5 className="testimonial-text">I am Rajesh, this website has really a good service capability.  </h5>

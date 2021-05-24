@@ -28,7 +28,7 @@ const Card = ({
    
   const [count, setCount] = useState(product.count);
  
-   
+  let [count1,setCount1]=useState(0)
   
 
   //alert notification//
@@ -39,7 +39,7 @@ const Card = ({
      autoClose: 2000,
      hideProgressBar: false,
      closeOnClick: true,
-     pauseOnHover: true,
+     pauseOnHover: false,
      draggable: true,
      progress: undefined,
      })
@@ -54,21 +54,21 @@ const Card = ({
   const cartDescrption = product ? product.description : "Default description";
   const cartPrice = product ? product.price : "DEFAULT";
   const category=product?(product.category.name):"DEFAULT"
+   
   const addToCart = () => {
      
     isAutheticated()?(addItemToCart(product, () => setRedirect(true))):(alert("Please Login or Signup to continue!"))
+    setCount1(1)
    
     
   };
 
-  
-  const getARedirect = redirect => {
-    if (redirect) {
-    
-  return notify()
-    }
-  };
- 
+  //so many notifications bug solved..
+   if(count1===1){
+     notify()
+     return setCount1(0)
+   }
+
 
   const showAddToCart = addtoCart => {
     return (
@@ -111,7 +111,7 @@ const Card = ({
      
       <div className="card-header lead">{cartTitle}</div>
       <div className="card-body">
-        {getARedirect(redirect)}
+         
          
         <ImageHelper product={product} />
         <p className="lead bg-success font-weight-normal text-wrap">
