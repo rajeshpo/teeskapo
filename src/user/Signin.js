@@ -125,8 +125,9 @@ const Signin = () => {
               Submit
             </button>
           </form>
+          <Link to="/signup" className="mt-2 text-warning">Don't have an account register here</Link>
         </div>
-        <Link to="/signup" className="mt-2 ml-3 text-warning">Don't have an account register here</Link>
+         
       </div>
     );
   };
