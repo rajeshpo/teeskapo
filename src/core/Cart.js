@@ -107,7 +107,7 @@ const Cart = () => {
     
   let w = window.innerWidth;
   return (
-    <Base title="Cart" description="Ready to checkout">
+    <Base title="Cart" description="Ready to checkout" showCategoryItems={1}>
   {w>768?(     <div className="row text-center">
         <div className="col-4">
           {products.length > 0 ? (
@@ -141,7 +141,7 @@ const Cart = () => {
         <div className="container mt-3 mb-3 border border-white mt-5 py-3 px-3">
         <h5 className="text-success" style={{textDecoration:"overline"}}>Motivation</h5>
 
-           <p className="text-white" id="quote"></p>
+           <p className="text-white" id="quote">Getting a Quote</p>
         </div>
     
         </div>

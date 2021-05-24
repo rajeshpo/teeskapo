@@ -8,6 +8,7 @@ const Base = ({
   title = "My Title",
   description = "My desription",
   className = "bg-dark text-white p-4",
+  showCategoryItems,
   children
 }) => {
 
@@ -23,7 +24,7 @@ const Base = ({
         <p className="lead">{description}</p>
       </div>
 
-      {isAutheticated()?(w>768?(  <div className="container-fluid Categories row">
+      {showCategoryItems?(w>768?(  <div className="container-fluid Categories row">
       <div>
         <Link to="/" style={{color:"white"}} className="category-hover"><img className="category-image" src="https://wallpaper.dog/large/10756163.jpg" alt="Default"/>  All Items</Link>
       </div>

@@ -54,7 +54,7 @@ export default function Rotis() {
  
    
   return (
-     <Base title="Rotis and Curries" description="Rotis and curries will amaze you">
+     <Base title="Rotis and Curries" description="Rotis and curries will amaze you" showCategoryItems={1}>
        <div className="row text-center mt-5">
     <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Roti & curries</h4>
     {w>768?(<div className="flex-items1">

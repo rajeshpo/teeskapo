@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Base from "../core/Base";
-import { Redirect } from "react-router-dom";
+import { Redirect ,Link} from "react-router-dom";
 
 
 import { signin, authenticate, isAutheticated } from "../auth/helper";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+ 
   toast.configure()
 
   const notify=()=>{
@@ -125,6 +126,7 @@ const Signin = () => {
             </button>
           </form>
         </div>
+        <Link to="/signup" className="mt-2 ml-3 text-warning">Don't have an account register here</Link>
       </div>
     );
   };
@@ -132,7 +134,7 @@ const Signin = () => {
    
 
   return (
-    <Base title="Sign In page" description="A page for user to sign in!">
+    <Base title="Sign In page" description="A page for user to sign in!" showCategoryItems={0}>
       {loadingMessage()}
       {errorMessage()}
       {signInForm()}

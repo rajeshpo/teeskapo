@@ -54,7 +54,7 @@ export default function Rotis() {
  
    
   return (
-     <Base title="Fast Food" description="Get chill with the drinks">
+     <Base title="Fast Food" description="Get chill with the drinks" showCategoryItems={1}>
        <div className="row text-center mt-5">
     <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Fast Food </h4>
     {w>768?(<div className="flex-items1">

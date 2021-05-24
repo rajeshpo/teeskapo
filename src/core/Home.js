@@ -39,10 +39,9 @@ export default function Home() {
    
 
   return (
-    <Base title={isAutheticated()?`Hii ${user.name.toUpperCase()}`:"Hii User"} description={isAutheticated()?"Welcome to the store":"Come on!! enter into our extending family"}>
+    <Base title={isAutheticated()?`Hii ${user.name.toUpperCase()}`:"Hii User"} description={isAutheticated()?"Welcome to the store":"Come on!! enter into our extending family"} showCategoryItems={1}>
   
  
-     <>
      
        <div className="container mb-5 mt-5">
        <section className="colored-section" id="testimonials">
@@ -71,7 +70,7 @@ export default function Home() {
 
 </section>
        </div>
-     </>
+   
       
  {products.length>0?( <div className="row text-center">
          
