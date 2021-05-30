@@ -17,7 +17,7 @@ const Card = ({
   setReload = f => f,
   //   function(f){return f}
   reload = undefined,
-  showQuantity,
+  showQ,
   calculatePrice,
    
   
@@ -50,11 +50,12 @@ const Card = ({
   
  //alerts
   
-  const cartTitle = product ? product.name : "A photo from pexels";
+ const cartTitle = product ? product.name : "A photo from pexels";
+  const productId=product?product._id:"DEFAULT ID"
   const cartDescrption = product ? product.description : "Default description";
   const cartPrice = product ? product.price : "DEFAULT";
+  const totalPrice = product ? product.totalprice : "DEFAULT";
   const category=product?(product.category.name):"DEFAULT"
-   
   const addToCart = () => {
      
     isAutheticated()?(addItemToCart(product, () => setRedirect(true))):(alert("Please Login or Signup to continue!"))
@@ -105,7 +106,16 @@ const Card = ({
     );
   };
   let w = window.innerWidth;
-
+   
+  const handleChange=(e)=>{
+   
+      
+    calculatePrice(e.target.value*cartPrice,productId,e.target.value)
+    
+   
+ 
+  }
+   
   return (
     <div className="card text-white bg-dark border border-info mb-2">
      
@@ -114,17 +124,20 @@ const Card = ({
          
          
         <ImageHelper product={product} />
-        <p className="lead bg-success font-weight-normal text-wrap">
+        <p className="bg-success font-weight-normal text-wrap">
           {cartDescrption}
         </p>
-        <p className="lead bg-secondary font-weight-normal text-wrap rounded">Rs/- {cartPrice}</p>
+        <p className="  bg-secondary font-weight-normal text-wrap rounded">Rs/- {cartPrice}</p>
+        {showQ?<div>
+        <form className="form mb-2">
+        <select name="Quantity" id="Quantity" onChange={handleChange}>
+          <option value="1">1</option>
+          <option value="2" >2</option>
+          <option value= "3">3</option>
+          <option value="4">4</option>
+        </select>
          
-        
-    
-      {
-  w>768?<p className="lead bg-success font-weight-normal text-wrap rounded">Category : {category}</p>:""
-
-      }   
+        </form></div>:""}  
         <div className="row">
           <div className="col-12">{showAddToCart(addtoCart)}
            </div>

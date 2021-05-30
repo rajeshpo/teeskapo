@@ -31,7 +31,10 @@ let m=0;
     map.map((i,p)=>{
          
       let n=k++
-        return  <small><strong>Product Name : {map[n].name} {map[n].price} RS/-</strong> </small>
+        return  <div>
+        <small><strong>Product Name : {map[n].name} {map[n].price} RS/-</strong> </small>
+        <small className="text-success"><strong>Q: {map[n].quantity}</strong> </small>
+        </div>
     })
     
      }

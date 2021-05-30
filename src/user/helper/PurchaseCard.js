@@ -21,20 +21,24 @@ let m=0;
       
         <small><strong>Status : {product.product.status  }</strong> </small>
         <small><strong>Amount : { product.product.amount }</strong> </small>
-        <small><strong>Name : {product.product.name }</strong> </small>
+     
         <small><strong>OrderId : { product.product._id}</strong> </small>
-        <small><strong>Total Products : { map1}</strong> </small>
+        
         
         { 
               
     map.map((i,p)=>{
          
       let n=k++
-        return  <small><strong>Product Name : {map[n].name} {map[n].price} RS/-</strong> </small>
+        return   <div>
+        <small><strong>Product Name : {map[n].name} {map[n].price} RS/-</strong> </small>
+        <small className="text-success"><strong>Q: {map[n].quantity}</strong> </small>
+        </div>
     })
     
      }
-     { 
+      <div className="jakas" >
+      { 
               
               map.map((i,p)=>{
                    
@@ -43,6 +47,7 @@ let m=0;
               })
               
                }
+      </div>
      
      
        

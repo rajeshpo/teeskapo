@@ -31,25 +31,30 @@ export default function Rotis() {
     loadAllProduct();
   }, []);
 
-  const searchItems=(search)=>{
-    console.log(search);
-    if(!search){
-      getProducts().then(data => {
-        if (data.error) {
-          setError(data.error);
-        } else {
-          setProducts(data); 
-        }
-      });
-    
+  function searchbox(values){
+    if(!values){
+      getProducts().then(response=>{
+        setProducts(response)
+      })
     }
+
+    let search= products.filter(function(product){
+     let searchvalue=product.name+""+product.description+""+product.price;
+        return searchvalue.toUpperCase().indexOf(values.toUpperCase())!==-1;
+    })
+   setProducts(search)
+   if(products.length===0){
+    getProducts().then(response=>{
+      setProducts(response)
+    })
     let search1= products.filter(function(product){
       let searchvalue=product.name;
-         return searchvalue.toUpperCase().indexOf(search.toUpperCase())!==-1;
+         return searchvalue.toUpperCase().indexOf(values.slice(0,1).toUpperCase())!=-1;
      })
-    return setProducts(search1);
-      
-  }
+   setProducts(search1)
+}
+ }
+ 
   let w = window.innerWidth;
  
    
@@ -59,11 +64,11 @@ export default function Rotis() {
     <h4 className="text-white ml-2" style={{textDecoration:"overline"}}>Fast Food </h4>
     {w>768?(<div className="flex-items1">
         <input placeholder="Search here"   className="form-control" onChange={(e)=>{ 
-        searchItems(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
+         searchbox(e.target.value)}}/><i class="fab fa-searchengin searchlaptop" style={{float:"right"}}></i>
       </div>):(
         <div className="flex-items"><i class="fab fa-searchengin searchphone" style={{float:"right"}}></i>
         <input placeholder="Search here"   className="form-control" onChange={(e)=>{ 
-        searchItems(e.target.value)}}/>
+         searchbox(e.target.value)}}/>
       </div>
       )}
      {products.length>0?( <div className="row mt-5">

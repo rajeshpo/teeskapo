@@ -52,7 +52,7 @@ body {
 }
 
 .testimonial-image {
-  width: 15%;
+  width: 12%;
   border-radius: 100%;
   margin: 20px;
   margin-left: 100px;
@@ -261,4 +261,10 @@ ul{
     text-decoration: none;
   }
     
+  }
+
+  .jakas{
+    width:100%;
+    display:inline-flex;
+   
   }

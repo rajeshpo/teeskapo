@@ -14,6 +14,8 @@ import { Link } from 'react-router-dom'
   toast.configure()
 
 export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
+
+   
  
   const name=isAutheticated()&&isAutheticated().user.name;
   const email=isAutheticated()&&isAutheticated().user.email;
@@ -32,14 +34,17 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
      })
   }
 
+  
   const getAmount=()=>{
-    let amount=0;
+    let amount=0
     products.map((p,i)=>{
-      amount=amount+p.price;
+      let add=p.totalprice>0?p.totalprice:p.price;
+  amount=amount+add;
+     
     })
     return amount
   }
-   
+   console.log("amount bri",getAmount());
    const razorPayPaymentHandler=async()=> {
     document.getElementById("paynow").innerHTML="One second I am on my way..."
     let userId = isAutheticated() && isAutheticated().user._id;
@@ -76,7 +81,7 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
                  name:name,
                  order_id:successObj.order_id,
                  time:time,
-                 address:add,
+                 address:add,  
                  status:"Recieved",
                  products:products
 
@@ -119,6 +124,7 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
       });
     document.getElementById("address").style.display="none";
     document.getElementById("sentAddress").innerHTML="Address Sent Successfully";
+     
     document.getElementById("sentAddress").style="text-center"
     document.getElementById("paynow").style.display="block";
 
@@ -142,8 +148,8 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
     </form> 
         </div>
         <div> 
-        <p id="sentAddress" className="text-success mb-3 mt-3 text-center"></p>
-        <p id="sentAddress" className="text-success mb-3 mt-3 text-center">Total Amount to pay {getAmount()} Rs/-</p>
+        <p id="sentAddress" className="text-white mb-3 mt-3 text-center"></p>
+        
 
          {w>768?(<button style={{display:"none",alignItems:'center'}} id="paynow"
         onClick={razorPayPaymentHandler}
@@ -154,10 +160,11 @@ export const Razorpay=({products,setReload=f=>f,reload=undefined})=>{
         className="btn btn-success btn-block rounded">
           Pay Now
         </button>)}
+       
       </div>
       </div>):""}
 
-      {shopping&&<Link to ="/" className="btn btn-success mt-5">Continue Shopping</Link>}
+      {shopping&&<Link to ="/" className="btn btn-success btn-block mt-5">Continue Shopping</Link>}
        </div>
     )
    

@@ -11,6 +11,8 @@ const AddProduct = () => {
     name: "",
     description: "",
     price: "",
+    totalprice:"",
+    quantity:"",
     stock: "",
     photo: "",
     categories: [],
@@ -26,6 +28,8 @@ const AddProduct = () => {
     name,
     description,
     price,
+    totalprice,
+    quantity,
     stock,
     categories,
     category,
@@ -63,6 +67,8 @@ const AddProduct = () => {
           name: "",
           description: "",
           price: "",
+          totalprice:"",
+          quantity:"",
           photo: "",
           stock: "",
           loading: false,
@@ -126,6 +132,24 @@ const AddProduct = () => {
           className="form-control"
           placeholder="Price"
           value={price}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          onChange={handleChange("totalprice")}
+          type="number"
+          className="form-control"
+          placeholder="totalprice"
+          value={totalprice}
+        />
+      </div>
+      <div className="form-group">
+        <input
+          onChange={handleChange("quantity")}
+          type="number"
+          className="form-control"
+          placeholder="quantity"
+          value={quantity}
         />
       </div>
       <div className="form-group">

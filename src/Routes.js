@@ -18,7 +18,7 @@ import UpdateCategory from "./admin/UpdateCategory";
 import ManageOrders from "./admin/ManageOrders";
 import TodayOrders from "./admin/TodayOrders";
  import privacy from './policy.js'
-import finalStage from "./core/finalStage";
+ 
 import Rotis from "./core/categoryHelpers/Rotis";
 import Biryani from './core/categoryHelpers/Biryani'
 import CoolDrinks from './core/categoryHelpers/CoolDrinks'
@@ -34,7 +34,7 @@ const Routes = () => {
         <Route path="/cart" exact component={Cart} />  
         <Route path="/corona-tracker" exact component={Corona} />  
         <PrivateRoute path="/user/dashboard" exact component={UserDashBoard} />
-        <PrivateRoute path="/user/paymentpage" exact component={finalStage} />
+        
         <PrivateRoute path="/user/rotisandcurries" exact component={Rotis} />
         <PrivateRoute path="/user/biryaniitems" exact component={Biryani} />
         <PrivateRoute path="/user/cooldrinks" exact component={CoolDrinks} />
