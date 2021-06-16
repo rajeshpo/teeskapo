@@ -26,7 +26,7 @@ const notifySignout=()=>{
 const Menu = ({ history }) => (
   
   <div className="float mobile">
-<label className="logo-title"><i class="fas fa-hand-holding-heart"></i><a style={{textDecoration:"none",color:"white"}} href="/">Teeskapo</a></label>
+<label className="logo-title"><i class="fas fa-hand-holding-heart"></i><a style={{textDecoration:"none",color:"white"}} href="/">Tevoy</a></label>
 <input type="checkbox" id="check"></input>
 <label for="check" className="checkBtn"><i class="fas fa-bars"></i></label>
     <ul className="">
