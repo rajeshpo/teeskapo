@@ -60,7 +60,7 @@ export default function Home() {
       <em>Shivanath</em>
     </div>
     <div className="carousel-item container-fluid">
-      <h5 className="testimonial-text">I am Ramesh, great delivery process by the team of teeskapo</h5>
+      <h5 className="testimonial-text">I am Ramesh, great delivery process by the team of tevoy</h5>
       <img loading="lazy" className="testimonial-image" src="https://www.braingroom.com/img/Buyer/profile/26671_briangroom_social_pic.jpg" alt="lady-profile"/>
       <em>Ramesh</em>
     </div>
